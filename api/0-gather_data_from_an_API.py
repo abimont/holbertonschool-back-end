@@ -1,9 +1,18 @@
 #!/usr/bin/python3
+"""
+Python script that, using a REST API, returns
+info about an employee todo list
+"""
 
 from sys import argv
 import requests
 
+
 if __name__ == "__main__":
+    """
+    For a given employee ID, returns information about 
+    his/her todo list progress.
+    """
     url = 'https://jsonplaceholder.typicode.com/users/' + argv[1]
     response = requests.get(url)
 
