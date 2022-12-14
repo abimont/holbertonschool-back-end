@@ -33,6 +33,6 @@ if __name__ == "__main__":
                     number_done_tasks += 1
                     tasks_title.append(dic['title'])
 
-            print("Employee {} is done with tasks({}/{})".format(employee_name,
+            print("Employee {} is done with tasks({}/{}):".format(employee_name,
                   number_done_tasks, len(content)))
             [print("\t {}".format(title)) for title in tasks_title]
