@@ -7,7 +7,6 @@ import requests
 from sys import argv
 
 
-
 def export_json():
     """ function that saves data into a JSON file """
     url = 'https://jsonplaceholder.typicode.com/users/' + argv[1]
@@ -28,7 +27,9 @@ def export_json():
 
             for task in content:
                 list_ = {
-                    'task': task['title'], 'completed': task['completed'], 'username': employee_name}
+                    'task': task['title'],
+                    'completed': task['completed'],
+                    'username': employee_name}
                 tasks_list.append(list_)
 
             with open(filename, 'w') as file:
