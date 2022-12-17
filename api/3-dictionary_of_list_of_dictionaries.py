@@ -19,8 +19,6 @@ def export_all_json():
         for user in content:
             employee_usernmane = user.get('username')
             employee_id = user.get('id')
-            print(employee_id)
-            print(employee_usernmane)
             url = 'https://jsonplaceholder.typicode.com/users/' + \
                 str(employee_id) + '/todos'
             response = requests.get(url)
