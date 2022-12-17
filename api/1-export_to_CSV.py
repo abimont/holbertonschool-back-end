@@ -17,7 +17,7 @@ def export_csv():
         employee_id = argv[1]
         url = 'https://jsonplaceholder.typicode.com/users/' + \
             argv[1] + '/todos'
-    
+
         response = requests.get(url)
         if response.status_code == 200:
             content = response.json()
@@ -26,9 +26,11 @@ def export_csv():
 
             with open(filename, 'w') as file:
                 for dic in content:
-                    file.write('"{}","{}","{}","{}"\n'.format(employee_id, employee_name, dic['completed'], dic['title']))
+                    file.write('"{}","{}","{}","{}"\n'.format(
+                        employee_id, employee_name,
+                        dic['completed'], dic['title']))
 
-            
+
 if __name__ == "__main__":
     """ executing function """
     export_csv()
