@@ -13,7 +13,7 @@ def export_csv():
 
     if response.status_code == 200:
         content = response.json()
-        employee_name = content.get('name')
+        employee_name = content.get('username')
         employee_id = argv[1]
         url = 'https://jsonplaceholder.typicode.com/users/' + \
             argv[1] + '/todos'
