@@ -22,10 +22,11 @@ def export_csv():
         if response.status_code == 200:
             content = response.json()
             filename = argv[1] + '.csv'
+            print(employee_name, employee_id)
 
             with open(filename, 'w') as file:
                 for dic in content:
-                    file.write('"{}", "{}", "{}", "{}"\n'.format(employee_id, employee_name, dic['completed'], dic['title']))
+                    file.write('"{}","{}","{}","{}"\n'.format(employee_id, employee_name, dic['completed'], dic['title']))
 
             
 if __name__ == "__main__":
