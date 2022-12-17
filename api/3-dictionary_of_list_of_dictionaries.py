@@ -14,17 +14,19 @@ def export_all_json():
     if response.status_code == 200:
         content = response.json()
         dic_user = {}
+        filename = 'todo_all_employees.json'
 
         for user in content:
             employee_usernmane = user.get('username')
             employee_id = user.get('id')
+            print(employee_id)
+            print(employee_usernmane)
             url = 'https://jsonplaceholder.typicode.com/users/' + \
                 str(employee_id) + '/todos'
             response = requests.get(url)
 
             if response.status_code == 200:
                 content = response.json()
-                filename = 'todo_all_employees.json'
                 tasks_list = []
 
                 for task in content:
@@ -35,7 +37,7 @@ def export_all_json():
                     tasks_list.append(list_)
                     dic_user[employee_id] = tasks_list
 
-        with open(filename, 'a', encoding='utf8') as file:
+        with open(filename, 'w') as file:
             json_dict = json.dumps(dic_user)
             file.write(json_dict)
 
